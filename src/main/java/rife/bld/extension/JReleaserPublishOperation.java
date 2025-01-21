@@ -23,14 +23,4 @@ public class JReleaserPublishOperation extends AbstractJReleaserPackagerModelOpe
     public JReleaserPublishOperation() {
         super("publish");
     }
-
-    /**
-     * Enables dry-run mode.
-     *
-     * @return this operation instance
-     */
-    public JReleaserPublishOperation dryRun() {
-        setOption("--dry-run", EMPTY);
-        return this;
-    }
 }

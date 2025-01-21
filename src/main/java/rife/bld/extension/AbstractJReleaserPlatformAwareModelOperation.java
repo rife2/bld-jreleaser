@@ -25,6 +25,16 @@ public class AbstractJReleaserPlatformAwareModelOperation<S extends AbstractJRel
     }
 
     /**
+     * Enables dry-run mode.
+     *
+     * @return this operation instance
+     */
+    public S dryRun() {
+        setOption("--dry-run", EMPTY);
+        return self();
+    }
+
+    /**
      * Limits artifact selection to the current platform.
      *
      * @return this operation instance
