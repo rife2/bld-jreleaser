@@ -58,7 +58,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
     protected BaseProject getProject() {
         return project_;
     }
-    
+
     protected void setOption(String key, String value) {
         options_.put(key, value);
     }
@@ -125,11 +125,12 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
         List<String> args = new ArrayList<>();
 
         if (project_ != null) {
+            System.setProperty("JRELEASER_PROJECT_VERSION", project_.version().toString());
             args.add(javaTool());
             args.add("-cp");
             args.add(String.format("%s:%s:%s:%s", new File(project_.libTestDirectory(), "*"),
-                    new File(project_.libCompileDirectory(), "*"), project_.buildMainDirectory(),
-                    project_.buildTestDirectory()));
+                new File(project_.libCompileDirectory(), "*"), project_.buildMainDirectory(),
+                project_.buildTestDirectory()));
             args.add("org.jreleaser.cli.Main");
             args.add(getCommand());
 
