@@ -125,7 +125,6 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
         List<String> args = new ArrayList<>();
 
         if (project_ != null) {
-            System.setProperty("JRELEASER_PROJECT_VERSION", project_.version().toString());
             args.add(javaTool());
             args.add("-cp");
             args.add(String.format("%s:%s:%s:%s", new File(project_.libTestDirectory(), "*"),
