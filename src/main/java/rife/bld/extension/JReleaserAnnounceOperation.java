@@ -17,50 +17,32 @@
 package rife.bld.extension;
 
 /**
- * Create a JReleaser config file.
+ * Announce a release.
  */
-public class JReleaserInitOperation extends AbstractJReleaserOperation<JReleaserInitOperation> {
-    public JReleaserInitOperation() {
-        super("init");
+public class JReleaserAnnounceOperation extends AbstractJReleaserModelOperation<JReleaserAnnounceOperation> {
+    public JReleaserAnnounceOperation() {
+        super("announce");
     }
 
     /**
-     * Sets the format.
+     * Includes the given announcer.
      *
-     * @param format the format
+     * @param announcer the announcer name
      * @return this operation instance
      */
-    public JReleaserInitOperation format(Format format) {
-        setOption("--format", format.getFormat());
+    public JReleaserAnnounceOperation announcer(String announcer) {
+        setOption("--announcer", announcer);
         return this;
     }
 
     /**
-     * Overwrite existing files.
+     * Excludes the given announcer.
      *
+     * @param announcer the announcer name
      * @return this operation instance
      */
-    public JReleaserInitOperation overwrite() {
-        setOption("--overwrite", EMPTY);
+    public JReleaserAnnounceOperation excludeAnnouncer(String announcer) {
+        setOption("--exclude-announcer", announcer);
         return this;
-    }
-
-    /**
-     * The currently supported formats.
-     */
-    public enum Format {
-        JSON("json"),
-        TOML("toml"),
-        YAML("yaml");
-
-        private final String format;
-
-        Format(String format) {
-            this.format = format;
-        }
-
-        public String getFormat() {
-            return format;
-        }
     }
 }
