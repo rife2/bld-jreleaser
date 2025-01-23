@@ -30,7 +30,7 @@ public class JReleaserTemplateGenerateOperation extends AbstractJReleaserOperati
      * @return this operation instance
      */
     public JReleaserTemplateGenerateOperation snapshot() {
-        setOption("--snapshot", EMPTY);
+        setOption("--snapshot");
         return this;
     }
 

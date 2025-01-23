@@ -59,6 +59,10 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
         return project_;
     }
 
+    protected void setOption(String key) {
+        setOption(key, EMPTY);
+    }
+
     protected void setOption(String key, String value) {
         options_.put(key, value);
     }
@@ -100,7 +104,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
      * @return this operation instance
      */
     public S debug() {
-        setOption("--debug", EMPTY);
+        setOption("--debug");
         return self();
     }
 
@@ -162,7 +166,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
      * @return this operation instance
      */
     public S help() {
-        setOption("--help", EMPTY);
+        setOption("--help");
         return self();
     }
 
@@ -172,7 +176,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
      * @return this operation instance
      */
     public S info() {
-        setOption("--info", EMPTY);
+        setOption("--info");
         return self();
     }
 
@@ -225,7 +229,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
      * @return this operation instance
      */
     public S version() {
-        setOption("--version", EMPTY);
+        setOption("--version");
         return self();
     }
 
@@ -235,7 +239,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
      * @return this operation instance
      */
     public S warn() {
-        setOption("--warn", EMPTY);
+        setOption("--warn");
         return self();
     }
 }

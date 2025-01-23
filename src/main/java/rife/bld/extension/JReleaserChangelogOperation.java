@@ -30,7 +30,7 @@ public class JReleaserChangelogOperation extends AbstractJReleaserModelOperation
      * @return this operation instance
      */
     public JReleaserChangelogOperation dryRun() {
-        setOption("--dry-run", EMPTY);
+        setOption("--dry-run");
         return this;
     }
 }

@@ -41,7 +41,7 @@ public class JReleaserInitOperation extends AbstractJReleaserOperation<JReleaser
      * @return this operation instance
      */
     public JReleaserInitOperation overwrite() {
-        setOption("--overwrite", EMPTY);
+        setOption("--overwrite");
         return this;
     }
 

@@ -33,7 +33,7 @@ public class JReleaserTemplateEvalOperation extends AbstractJReleaserPlatformAwa
      * @return this operation instance
      */
     public JReleaserTemplateEvalOperation overwrite() {
-        setOption("--overwrite", EMPTY);
+        setOption("--overwrite");
         return this;
     }
 
@@ -43,7 +43,7 @@ public class JReleaserTemplateEvalOperation extends AbstractJReleaserPlatformAwa
      * @return this operation instance
      */
     public JReleaserTemplateEvalOperation announce() {
-        setOption("--announce", EMPTY);
+        setOption("--announce");
         return this;
     }
 
@@ -53,7 +53,7 @@ public class JReleaserTemplateEvalOperation extends AbstractJReleaserPlatformAwa
      * @return this operation instance
      */
     public JReleaserTemplateEvalOperation assembly() {
-        setOption("--assembly", EMPTY);
+        setOption("--assembly");
         return this;
     }
 
@@ -63,7 +63,7 @@ public class JReleaserTemplateEvalOperation extends AbstractJReleaserPlatformAwa
      * @return this operation instance
      */
     public JReleaserTemplateEvalOperation changelog() {
-        setOption("--changelog", EMPTY);
+        setOption("--changelog");
         return this;
     }
 
@@ -73,7 +73,7 @@ public class JReleaserTemplateEvalOperation extends AbstractJReleaserPlatformAwa
      * @return this operation instance
      */
     public JReleaserTemplateEvalOperation download() {
-        setOption("--download", EMPTY);
+        setOption("--download");
         return this;
     }
 

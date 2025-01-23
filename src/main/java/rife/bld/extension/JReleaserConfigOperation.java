@@ -30,7 +30,7 @@ public class JReleaserConfigOperation extends AbstractJReleaserPlatformAwareMode
      * @return this operation instance
      */
     public JReleaserConfigOperation full() {
-        setOption("--full", EMPTY);
+        setOption("--full");
         return this;
     }
 
@@ -40,7 +40,7 @@ public class JReleaserConfigOperation extends AbstractJReleaserPlatformAwareMode
      * @return this operation instance
      */
     public JReleaserConfigOperation announce() {
-        setOption("--announce", EMPTY);
+        setOption("--announce");
         return this;
     }
 
@@ -50,7 +50,7 @@ public class JReleaserConfigOperation extends AbstractJReleaserPlatformAwareMode
      * @return this operation instance
      */
     public JReleaserConfigOperation assembly() {
-        setOption("--assembly", EMPTY);
+        setOption("--assembly");
         return this;
     }
 
@@ -60,7 +60,7 @@ public class JReleaserConfigOperation extends AbstractJReleaserPlatformAwareMode
      * @return this operation instance
      */
     public JReleaserConfigOperation changelog() {
-        setOption("--changelog", EMPTY);
+        setOption("--changelog");
         return this;
     }
 
@@ -70,7 +70,7 @@ public class JReleaserConfigOperation extends AbstractJReleaserPlatformAwareMode
      * @return this operation instance
      */
     public JReleaserConfigOperation download() {
-        setOption("--download", EMPTY);
+        setOption("--download");
         return this;
     }
 }

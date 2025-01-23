@@ -64,7 +64,7 @@ public class AbstractJReleaserModelOperation<S extends AbstractJReleaserModelOpe
      * @return this operation instance
      */
     public S gitRootSearch() {
-        setOption("--git-root-search", EMPTY);
+        setOption("--git-root-search");
         return self();
     }
 
@@ -74,7 +74,7 @@ public class AbstractJReleaserModelOperation<S extends AbstractJReleaserModelOpe
      * @return this operation instance
      */
     public S strict() {
-        setOption("--strict", EMPTY);
+        setOption("--strict");
         return self();
     }
 

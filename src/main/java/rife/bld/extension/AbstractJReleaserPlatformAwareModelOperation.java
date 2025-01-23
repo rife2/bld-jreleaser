@@ -30,7 +30,7 @@ public class AbstractJReleaserPlatformAwareModelOperation<S extends AbstractJRel
      * @return this operation instance
      */
     public S dryRun() {
-        setOption("--dry-run", EMPTY);
+        setOption("--dry-run");
         return self();
     }
 
@@ -40,7 +40,7 @@ public class AbstractJReleaserPlatformAwareModelOperation<S extends AbstractJRel
      * @return this operation instance
      */
     public S selectCurrentPlatform() {
-        setOption("--select-current-platform", EMPTY);
+        setOption("--select-current-platform");
         return self();
     }
 
