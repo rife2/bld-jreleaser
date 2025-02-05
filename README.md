@@ -37,6 +37,6 @@ Don't forget to add the [JReleaser](https://jreleaser.org/) dependency to your b
 
 ```java
 repositories = List.of(MAVEN_CENTRAL);
-scope(compile)
+scope(provided)
      .include(dependency("org.jreleaser", "jreleaser", version(1, 16, 0)));
 ```

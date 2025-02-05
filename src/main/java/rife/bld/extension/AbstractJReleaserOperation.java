@@ -131,9 +131,9 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
         if (project_ != null) {
             args.add(javaTool());
             args.add("-cp");
-            args.add(String.format("%s:%s:%s:%s", new File(project_.libTestDirectory(), "*"),
-                new File(project_.libCompileDirectory(), "*"), project_.buildMainDirectory(),
-                project_.buildTestDirectory()));
+            args.add(String.format("%s:%s:%s:%s:%s", new File(project_.libTestDirectory(), "*"),
+                    new File(project_.libCompileDirectory(), "*"), new File(project_.libProvidedDirectory(), "*"),
+                    project_.buildMainDirectory(), project_.buildTestDirectory()));
             args.add("org.jreleaser.cli.Main");
             args.add(getCommand());
 
