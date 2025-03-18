@@ -7,7 +7,15 @@
 [![Snapshot](https://flat.badgen.net/maven/v/metadata-url/repo.rife2.com/snapshots/com/uwyn/rife2/bld-jreleaser/maven-metadata.xml?label=snapshot)](https://repo.rife2.com/#/snapshots/com/uwyn/rife2/bld-jreleaser)
 [![GitHub CI](https://github.com/rife2/bld-jreleaser/actions/workflows/bld.yml/badge.svg)](https://github.com/rife2/bld-jreleaser/actions/workflows/bld.yml)
 
-To install, please refer to the [extensions documentation](https://github.com/rife2/bld/wiki/Extensions).
+To install the latest version, add the following to the `lib/bld/bld-wrapper.properties` file:
+
+```properties
+bld.extension-jreleaser=com.uwyn.rife2:bld-jreleaser
+```
+
+For more information, please refer to the [extensions](https://github.com/rife2/bld/wiki/Extensions) documentation.
+
+## Generate JReleaser Config File
 
 To generate a JReleaser config file, add the following to your build file:
 
