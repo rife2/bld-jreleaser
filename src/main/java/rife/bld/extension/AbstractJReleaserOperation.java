@@ -131,9 +131,10 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
         if (project_ != null) {
             args.add(javaTool());
             args.add("-cp");
-            args.add(String.format("%s:%s:%s:%s:%s", new File(project_.libTestDirectory(), "*"),
-                    new File(project_.libCompileDirectory(), "*"), new File(project_.libProvidedDirectory(), "*"),
-                    project_.buildMainDirectory(), project_.buildTestDirectory()));
+            args.add(String.format("%s%s%s%s%s%s%s%s%s", new File(project_.libTestDirectory(), "*"),
+                    File.pathSeparator, new File(project_.libCompileDirectory(), "*"), File.pathSeparator,
+                    new File(project_.libProvidedDirectory(), "*"), File.pathSeparator, project_.buildMainDirectory(),
+                    File.pathSeparator, project_.buildTestDirectory()));
             args.add("org.jreleaser.cli.Main");
             args.add(getCommand());
 
@@ -144,6 +145,10 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
                     args.add(k);
                 }
             });
+        }
+
+        if (LOGGER.isLoggable(Level.FINE)) {
+            LOGGER.fine(String.join(" ", args));
         }
 
         return args;
