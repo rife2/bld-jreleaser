@@ -21,7 +21,7 @@ public class ExamplesBuild extends Project {
         autoDownloadPurge = true;
 
         repositories = List.of(MAVEN_CENTRAL, RIFE2_RELEASES);
-        scope(compile)
+        scope(provided)
                 .include(dependency("org.jreleaser", "jreleaser", version(1, 17, 0)));
         scope(test)
                 .include(dependency("org.junit.jupiter", "junit-jupiter", version(5, 12, 1)))
