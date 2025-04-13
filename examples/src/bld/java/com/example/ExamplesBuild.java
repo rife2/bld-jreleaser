@@ -27,8 +27,8 @@ public class ExamplesBuild extends Project {
         scope(provided)
                 .include(dependency("org.jreleaser", "jreleaser", version(1, 17, 0)));
         scope(test)
-                .include(dependency("org.junit.jupiter", "junit-jupiter", version(5, 12, 1)))
-                .include(dependency("org.junit.platform", "junit-platform-console-standalone", version(1, 12, 1)));
+                .include(dependency("org.junit.jupiter", "junit-jupiter", version(5, 12, 2)))
+                .include(dependency("org.junit.platform", "junit-platform-console-standalone", version(1, 12, 2)));
     }
 
     public static void main(String[] args) {
