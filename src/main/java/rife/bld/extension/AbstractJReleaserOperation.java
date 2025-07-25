@@ -116,8 +116,19 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
             }
             throw new ExitStatusException(ExitStatusException.EXIT_FAILURE);
         } else {
+            configureEnvironment();
             super.execute();
         }
+    }
+
+    /**
+     * Configure env vars before execution.
+     */
+    private void configureEnvironment() {
+        // Get all env vars with JRELEASER_ prefix into the builder's environment
+        System.getenv().entrySet().stream()
+            .filter(entry -> entry.getKey().startsWith("JRELEASER_"))
+            .forEach(entry -> environment().put(entry.getKey(), entry.getValue()));
     }
 
     /**
