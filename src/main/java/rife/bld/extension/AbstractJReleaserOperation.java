@@ -217,6 +217,16 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
     }
 
     /**
+     * Supress all output.
+     *
+     * @return this operation instance
+     */
+    public S quiet() {
+        setOption("--quiet");
+        return self();
+    }
+
+    /**
      * Sets a System property.
      *
      * @param key   the property key

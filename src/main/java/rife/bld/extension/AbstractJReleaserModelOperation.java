@@ -79,6 +79,16 @@ public class AbstractJReleaserModelOperation<S extends AbstractJReleaserModelOpe
     }
 
     /**
+     * Enables yolo mode.
+     *
+     * @return this operation instance
+     */
+    public S yolo() {
+        setOption("--yolo");
+        return self();
+    }
+
+    /**
      * Sets a project property.
      *
      * @param key   the property key
