@@ -18,13 +18,12 @@ package rife.bld.extension;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
 import rife.bld.BaseProject;
 import rife.bld.operations.exceptions.ExitStatusException;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Objects;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +31,9 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JReleaserInitOperationTest {
+    @TempDir
+    private File tmpDir;
+
     @BeforeAll
     static void beforeAll() {
         var level = Level.ALL;
@@ -43,22 +45,8 @@ public class JReleaserInitOperationTest {
         logger.setUseParentHandlers(false);
     }
 
-    static void deleteOnExit(File folder) {
-        folder.deleteOnExit();
-        for (var f : Objects.requireNonNull(folder.listFiles())) {
-            if (f.isDirectory()) {
-                deleteOnExit(f);
-            } else {
-                f.deleteOnExit();
-            }
-        }
-    }
-
     @Test
     void testFormat() throws IOException, ExitStatusException, InterruptedException {
-        var tmpDir = Files.createTempDirectory("bld-jreleaser-testformat").toFile();
-        tmpDir.deleteOnExit();
-
         var op = new JReleaserInitOperation();
 
         op.fromProject(new BaseProject()).basedir(tmpDir.getAbsolutePath());
@@ -72,7 +60,5 @@ public class JReleaserInitOperationTest {
         op.format(JReleaserInitOperation.Format.TOML);
         op.execute();
         assertTrue(new File(tmpDir, "jreleaser.toml").exists(), "jreleaser.toml not found");
-
-        deleteOnExit(tmpDir);
     }
 }
