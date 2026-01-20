@@ -18,14 +18,15 @@ package rife.bld.extension;
 
 import rife.bld.BuildCommand;
 import rife.bld.Project;
+import rife.bld.extension.tools.IOTools;
 import rife.bld.publish.PublishDeveloper;
 import rife.bld.publish.PublishLicense;
 import rife.bld.publish.PublishScm;
 
-import java.io.File;
 import java.util.List;
 
-import static rife.bld.dependencies.Repository.*;
+import static rife.bld.dependencies.Repository.MAVEN_CENTRAL;
+import static rife.bld.dependencies.Repository.RIFE2_RELEASES;
 import static rife.bld.dependencies.Scope.compile;
 import static rife.bld.dependencies.Scope.test;
 import static rife.bld.operations.JavadocOptions.DocLinkOption.NO_MISSING;
@@ -45,7 +46,8 @@ public class JReleaserExtensionBuild extends Project {
 
         var junit = version(6, 0, 2);
         scope(compile)
-                .include(dependency("com.uwyn.rife2", "bld", version(2, 3, 0)));
+                .include(dependency("com.uwyn.rife2", "bld",
+                        version(2, 3, 0)));
         scope(test)
                 .include(dependency("com.uwyn.rife2", "bld-extensions-testing-helpers",
                         version(0, 9, 5)))
@@ -92,22 +94,22 @@ public class JReleaserExtensionBuild extends Project {
                 .signPassphrase(property("sign.passphrase"));
     }
 
+    @Override
+    public void test() throws Exception {
+        var op = testOperation().fromProject(this);
+        op.testToolOptions().reportsDir(IOTools.resolveFile(buildDirectory(), "test-results", "test"));
+        op.execute();
+    }
+
+    public static void main(String[] args) {
+        new JReleaserExtensionBuild().start(args);
+    }
+
     @BuildCommand(summary = "Runs the JUnit reporter")
     public void reporter() throws Exception {
         new JUnitReporterOperation()
                 .fromProject(this)
                 .failOnSummary(true)
                 .execute();
-    }
-
-    @Override
-    public void test() throws Exception {
-        var op = testOperation().fromProject(this);
-        op.testToolOptions().reportsDir(new File("build/test-results/test/"));
-        op.execute();
-    }
-
-    public static void main(String[] args) {
-        new JReleaserExtensionBuild().start(args);
     }
 }

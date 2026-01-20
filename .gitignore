@@ -56,3 +56,4 @@ atlassian-ide-plugin.xml
 .idea/httpRequests
 
 local.properties
+.idea/codeStyles/codeStyleConfig.xml
