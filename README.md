@@ -1,4 +1,4 @@
-# [JReleaser](https://jreleaser.org/) Extension for [b<span style="color:orange">l</span>d](https://rife2.com/bld) 
+# [JReleaser](https://jreleaser.org/) Extension for [b<span style="color:orange">l</span>d](https://rife2.com/bld)
 
 [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Java](https://img.shields.io/badge/java-17%2B-blue)](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
@@ -31,6 +31,7 @@ public void jreleaserInit() throws Exception {
 ```
 
 Then run the following command:
+
 ```
 ./bld jreleaser-init
 ```
@@ -46,5 +47,5 @@ Don't forget to add the [JReleaser](https://jreleaser.org/) dependency to your b
 ```java
 repositories = List.of(MAVEN_CENTRAL);
 scope(provided)
-     .include(dependency("org.jreleaser", "jreleaser", version(1, 17, 0)));
+     .include(dependency("org.jreleaser", "jreleaser", version(1, 23, 0)));
 ```
