@@ -24,11 +24,12 @@ public class ExamplesBuild extends Project {
         autoDownloadPurge = true;
 
         repositories = List.of(MAVEN_CENTRAL, RIFE2_RELEASES);
+        var junit = version(6, 0, 3);
         scope(provided)
                 .include(dependency("org.jreleaser", "jreleaser", version(1, 22, 0)));
         scope(test)
-                .include(dependency("org.junit.jupiter", "junit-jupiter", version(6, 0, 2)))
-                .include(dependency("org.junit.platform", "junit-platform-console-standalone", version(6, 0, 2)));
+                .include(dependency("org.junit.jupiter", "junit-jupiter", junit))
+                .include(dependency("org.junit.platform", "junit-platform-console-standalone", junit));
     }
 
     public static void main(String[] args) {
