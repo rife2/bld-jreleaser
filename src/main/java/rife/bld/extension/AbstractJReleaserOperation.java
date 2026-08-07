@@ -17,6 +17,8 @@
 package rife.bld.extension;
 
 import rife.bld.BaseProject;
+import rife.bld.dependencies.Scope;
+import rife.bld.extension.tools.PathTools;
 import rife.bld.operations.AbstractProcessOperation;
 import rife.bld.operations.exceptions.ExitStatusException;
 
@@ -35,8 +37,9 @@ import java.util.logging.Logger;
  * Base class for all JReleaser operations.
  */
 public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOperation<S>> extends AbstractProcessOperation<S> {
-    private static final Logger LOGGER = Logger.getLogger(AbstractJReleaserOperation.class.getName());
     protected static final String EMPTY = "";
+    private static final Logger LOGGER = Logger.getLogger(AbstractJReleaserOperation.class.getName());
+    private static final String BASEDIR_OPTION = "--basedir";
 
     private final Map<String, String> options_ = new ConcurrentHashMap<>();
     private final String command_;
@@ -74,7 +77,7 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
      * @return this operation instance
      */
     public S basedir(String directory) {
-        setOption("--basedir", directory);
+        setOption(BASEDIR_OPTION, directory);
         return self();
     }
 
@@ -127,8 +130,8 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
     private void configureEnvironment() {
         // Get all env vars with JRELEASER_ prefix into the builder's environment
         System.getenv().entrySet().stream()
-            .filter(entry -> entry.getKey().startsWith("JRELEASER_"))
-            .forEach(entry -> environment().put(entry.getKey(), entry.getValue()));
+                .filter(entry -> entry.getKey().startsWith("JRELEASER_"))
+                .forEach(entry -> environment().put(entry.getKey(), entry.getValue()));
     }
 
     /**
@@ -142,10 +145,8 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
         if (project_ != null) {
             args.add(javaTool());
             args.add("-cp");
-            args.add(String.format("%s%s%s%s%s%s%s%s%s", new File(project_.libTestDirectory(), "*"),
-                    File.pathSeparator, new File(project_.libCompileDirectory(), "*"), File.pathSeparator,
-                    new File(project_.libProvidedDirectory(), "*"), File.pathSeparator, project_.buildMainDirectory(),
-                    File.pathSeparator, project_.buildTestDirectory()));
+            args.add(PathTools.joinClasspath(
+                    project_.dependencyClasspathJars(Scope.provided, "org.jreleaser", "jreleaser")));
             args.add("org.jreleaser.cli.Main");
             args.add(getCommand());
 
@@ -167,12 +168,17 @@ public abstract class AbstractJReleaserOperation<S extends AbstractJReleaserOper
 
     /**
      * Configures the operation from a {@link BaseProject}.
+     * <p>
+     * Sets the base directory to the {@link BaseProject#workDirectory() project work directory} if not already set.
      *
      * @param project the project to configure the operation from
      */
     @Override
     public S fromProject(BaseProject project) {
         project_ = project;
+        if (!options_.containsKey(BASEDIR_OPTION)) {
+            setOption(BASEDIR_OPTION, project_.workDirectory().getAbsolutePath());
+        }
         return self();
     }
 

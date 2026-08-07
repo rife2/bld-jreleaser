@@ -25,8 +25,7 @@ import rife.bld.publish.PublishScm;
 
 import java.util.List;
 
-import static rife.bld.dependencies.Repository.MAVEN_CENTRAL;
-import static rife.bld.dependencies.Repository.RIFE2_RELEASES;
+import static rife.bld.dependencies.Repository.*;
 import static rife.bld.dependencies.Scope.compile;
 import static rife.bld.dependencies.Scope.test;
 import static rife.bld.operations.JavadocOptions.DocLinkOption.NO_MISSING;
@@ -42,17 +41,19 @@ public class JReleaserExtensionBuild extends Project {
         downloadSources = true;
         autoDownloadPurge = true;
 
-        repositories = List.of(MAVEN_CENTRAL, RIFE2_RELEASES);
+        repositories = List.of(MAVEN_CENTRAL, RIFE2_RELEASES, RIFE2_SNAPSHOTS);
 
-        var junit = version(6, 0, 3);
+        var junit = version(6, 1, 3);
         scope(compile)
+                .include(dependency("com.uwyn.rife2", "bld-extensions-tools",
+                        version(1, 3, 0, "SNAPSHOT")))
                 .include(dependency("com.uwyn.rife2", "bld",
-                        version(2, 3, 0)));
+                        version(3, 0, 0, "SNAPSHOT")));
         scope(test)
-                .include(dependency("com.uwyn.rife2", "bld-extensions-testing-helpers",
-                        version(0, 9, 6)))
+                .include(dependency("com.uwyn.rife2", "bld-testing-helpers",
+                        version(1, 1, 0, "SNAPSHOT")))
                 .include(dependency("org.jreleaser", "jreleaser",
-                        version(1, 23, 0)))
+                        version(1, 26, 0)))
                 .include(dependency("org.junit.jupiter", "junit-jupiter", junit))
                 .include(dependency("org.junit.platform", "junit-platform-console-standalone", junit));
 

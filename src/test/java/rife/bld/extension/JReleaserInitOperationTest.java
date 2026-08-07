@@ -19,13 +19,15 @@ package rife.bld.extension;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.junit.jupiter.api.io.TempDir;
 import rife.bld.BaseProject;
-import rife.bld.extension.testing.LoggingExtension;
+import rife.bld.dependencies.Repository;
+import rife.bld.dependencies.Scope;
 import rife.bld.operations.exceptions.ExitStatusException;
+import rife.bld.testing.LoggingExtension;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -35,23 +37,44 @@ public class JReleaserInitOperationTest {
     @SuppressWarnings("unused")
     private static final LoggingExtension LOGGING_EXTENSION = new LoggingExtension("rife.bld.extension");
 
-    @TempDir
-    private File tmpDir;
-
     @Test
     void testFormat() throws IOException, ExitStatusException, InterruptedException {
         var op = new JReleaserInitOperation();
+        var testProject = new TestProject();
+        op.fromProject(testProject);
 
-        op.fromProject(new BaseProject()).basedir(tmpDir.getAbsolutePath());
+
+        var yml = new File(testProject.workDirectory(), "jreleaser.yml");
+        yml.deleteOnExit();
         op.execute();
-        assertTrue(new File(tmpDir, "jreleaser.yml").exists(), "jreleaser.yml not found");
+        assertTrue(yml.exists(), "jreleaser.yml not found");
 
         op.format(JReleaserInitOperation.Format.JSON);
+        var json = new File(testProject.workDirectory(), "jreleaser.json");
+        json.deleteOnExit();
         op.execute();
-        assertTrue(new File(tmpDir, "jreleaser.json").exists(), "jreleaser.json not found");
+        assertTrue(json.exists(), "jreleaser.json not found");
 
         op.format(JReleaserInitOperation.Format.TOML);
+        var toml = new File(testProject.workDirectory(), "jreleaser.toml");
+        toml.deleteOnExit();
         op.execute();
-        assertTrue(new File(tmpDir, "jreleaser.toml").exists(), "jreleaser.toml not found");
+        assertTrue(toml.exists(), "jreleaser.toml not found");
+    }
+
+    static class TestProject extends BaseProject {
+
+        TestProject() {
+            workDirectory = new File("src/test/resources/TestProject");
+            pkg = "com.example";
+            name = "TestProject";
+            version = version(0, 1, 0);
+
+            autoDownloadPurge = true;
+
+            repositories = List.of(Repository.MAVEN_CENTRAL, Repository.RIFE2_RELEASES);
+
+            scope(Scope.provided).include(dependency("org.jreleaser", "jreleaser"));
+        }
     }
 }

@@ -1,0 +1,3 @@
+[DEBUG] resolving template from classpath for init/jreleaser.toml.tpl
+[INFO]  Writing file /home/erik/dev/java/bld/bld-jreleaser/src/test/resources/TestProject/jreleaser.toml
+[INFO]  JReleaser initialized at /home/erik/dev/java/bld/bld-jreleaser/src/test/resources/TestProject

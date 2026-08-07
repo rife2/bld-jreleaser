@@ -1,7 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
+    <entry_points version="2.0">
+      <entry_point TYPE="field" FQNAME="rife.bld.extension.JReleaserInitOperation.Format YAML" />
+    </entry_points>
     <pattern value="rife.bld.extension.JReleaserExtensionBuild" />
     <pattern value="rife.bld.extension.JReleaserExtensionBuild" method="reporter" />
+    <pattern value="rife.bld.extension.AbstractJReleaserDistributionModelOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserDistributionModelOperation" method="AbstractJReleaserDistributionModelOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserModelOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPackagerModelOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPackagerModelOperation" method="AbstractJReleaserPackagerModelOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPlatformAwareModelOperation" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPlatformAwareModelOperation" method="AbstractJReleaserPlatformAwareModelOperation" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" method="announce" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="announce" />
+    <pattern value="rife.bld.extension.JReleaserAnnounceOperation" method="announcer" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="announcer" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="announcer" />
+    <pattern value="rife.bld.extension.JReleaserAssembleOperation" method="assembler" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="assemblerByName" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="assemblerByType" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" method="assembly" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="assembly" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="basedir" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="cataloger" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="cataloger" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="cataloger" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="cataloger" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" method="changelog" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="changelog" />
+    <pattern value="rife.bld.extension.AbstractJReleaserModelOperation" method="configFile" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="debug" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="deployerByName" />
+    <pattern value="rife.bld.extension.JReleaserDeployOperation" method="deployerByName" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="deployerByName" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="deployerByName" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="deployerByType" />
+    <pattern value="rife.bld.extension.JReleaserDeployOperation" method="deployerByType" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="deployerByType" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="deployerByType" />
+    <pattern value="rife.bld.extension.AbstractJReleaserDistributionModelOperation" method="distribution" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="distribution" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="distributionByType" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" method="download" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="download" />
+    <pattern value="rife.bld.extension.JReleaserDownloadOperation" method="downloaderByName" />
+    <pattern value="rife.bld.extension.JReleaserDownloadOperation" method="downloaderByType" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPlatformAwareModelOperation" method="dryRun" />
+    <pattern value="rife.bld.extension.JReleaserChangelogOperation" method="dryRun" />
+    <pattern value="rife.bld.extension.JReleaserAnnounceOperation" method="excludeAnnouncer" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="excludeAnnouncer" />
+    <pattern value="rife.bld.extension.JReleaserAssembleOperation" method="excludeAssembler" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="excludeCataloger" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="excludeCataloger" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="excludeCataloger" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="excludeCataloger" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="excludeDeployerByName" />
+    <pattern value="rife.bld.extension.JReleaserDeployOperation" method="excludeDeployerByName" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="excludeDeployerByName" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="excludeDeployerByName" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="excludeDeployerByType" />
+    <pattern value="rife.bld.extension.JReleaserDeployOperation" method="excludeDeployerByType" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="excludeDeployerByType" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="excludeDeployerByType" />
+    <pattern value="rife.bld.extension.AbstractJReleaserDistributionModelOperation" method="excludeDistribution" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="excludeDistribution" />
+    <pattern value="rife.bld.extension.JReleaserDownloadOperation" method="excludeDownloaderByName" />
+    <pattern value="rife.bld.extension.JReleaserDownloadOperation" method="excludeDownloaderByType" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPackagerModelOperation" method="excludePackager" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="excludePackager" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="excludeUploaderByName" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="excludeUploaderByName" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="excludeUploaderByName" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="excludeUploaderByType" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="excludeUploaderByType" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="excludeUploaderByType" />
+    <pattern value="rife.bld.extension.JReleaserInitOperation.Format" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" method="full" />
+    <pattern value="com.example.TestProject" method="getMessage" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="getProject" />
+    <pattern value="rife.bld.extension.AbstractJReleaserModelOperation" method="gitRootSearch" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="help" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="info" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="inputDirectory" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="inputFile" />
+    <pattern value="rife.bld.extension.JReleaserAnnounceOperation" />
+    <pattern value="rife.bld.extension.JReleaserAnnounceOperation" method="JReleaserAnnounceOperation" />
+    <pattern value="rife.bld.extension.JReleaserAssembleOperation" />
+    <pattern value="rife.bld.extension.JReleaserAssembleOperation" method="JReleaserAssembleOperation" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" />
+    <pattern value="rife.bld.extension.JReleaserCatalogOperation" method="JReleaserCatalogOperation" />
+    <pattern value="rife.bld.extension.JReleaserChangelogOperation" />
+    <pattern value="rife.bld.extension.JReleaserChangelogOperation" method="JReleaserChangelogOperation" />
+    <pattern value="rife.bld.extension.JReleaserChecksumOperation" />
+    <pattern value="rife.bld.extension.JReleaserChecksumOperation" method="JReleaserChecksumOperation" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" />
+    <pattern value="rife.bld.extension.JReleaserConfigOperation" method="JReleaserConfigOperation" />
+    <pattern value="rife.bld.extension.JReleaserDeployOperation" />
+    <pattern value="rife.bld.extension.JReleaserDeployOperation" method="JReleaserDeployOperation" />
+    <pattern value="rife.bld.extension.JReleaserDownloadOperation" />
+    <pattern value="rife.bld.extension.JReleaserDownloadOperation" method="JReleaserDownloadOperation" />
+    <pattern value="rife.bld.extension.JReleaserEnvOperation" />
+    <pattern value="rife.bld.extension.JReleaserEnvOperation" method="JReleaserEnvOperation" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="JReleaserFullReleaseOperation" />
+    <pattern value="rife.bld.extension.JReleaserInitOperation" />
+    <pattern value="rife.bld.extension.JReleaserInitOperationTest" />
+    <pattern value="rife.bld.extension.JReleaserJsonSchemaOperation" />
+    <pattern value="rife.bld.extension.JReleaserJsonSchemaOperation" method="JReleaserJsonSchemaOperation" />
+    <pattern value="rife.bld.extension.JReleaserPackageOperation" />
+    <pattern value="rife.bld.extension.JReleaserPackageOperation" method="JReleaserPackageOperation" />
+    <pattern value="rife.bld.extension.JReleaserPrepareOperation" />
+    <pattern value="rife.bld.extension.JReleaserPrepareOperation" method="JReleaserPrepareOperation" />
+    <pattern value="rife.bld.extension.JReleaserPublishOperation" />
+    <pattern value="rife.bld.extension.JReleaserPublishOperation" method="JReleaserPublishOperation" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="JReleaserReleaseOperation" />
+    <pattern value="rife.bld.extension.JReleaserSignOperation" />
+    <pattern value="rife.bld.extension.JReleaserSignOperation" method="JReleaserSignOperation" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="JReleaserTemplateEvalOperation" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="JReleaserTemplateGenerateOperation" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="JReleaserUploadOperation" />
+    <pattern value="rife.bld.extension.JReleaserExtensionBuild" method="main" />
+    <pattern value="com.example.TestProjectBuild" method="main" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="outputDirectory" />
+    <pattern value="rife.bld.extension.JReleaserInitOperation" method="overwrite" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="overwrite" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPackagerModelOperation" method="packager" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="packager" />
+    <pattern value="rife.bld.extension.AbstractJReleaserModelOperation" method="projectProperty" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="quiet" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPlatformAwareModelOperation" method="rejectPlatform" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPlatformAwareModelOperation" method="selectCurrentPlatform" />
+    <pattern value="rife.bld.extension.AbstractJReleaserPlatformAwareModelOperation" method="selectPlatform" />
+    <pattern value="rife.bld.extension.JReleaserTemplateGenerateOperation" method="snapshot" />
+    <pattern value="rife.bld.extension.AbstractJReleaserModelOperation" method="strict" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="systemProperty" />
+    <pattern value="rife.bld.extension.JReleaserTemplateEvalOperation" method="targetDirectory" />
+    <pattern value="rife.bld.extension.JReleaserInitOperationTest" method="testFormat" />
+    <pattern value="com.example.TestProject" />
+    <pattern value="com.example.TestProjectBuild" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="uploaderByName" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="uploaderByName" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="uploaderByName" />
+    <pattern value="rife.bld.extension.JReleaserFullReleaseOperation" method="uploaderByType" />
+    <pattern value="rife.bld.extension.JReleaserReleaseOperation" method="uploaderByType" />
+    <pattern value="rife.bld.extension.JReleaserUploadOperation" method="uploaderByType" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="version" />
+    <pattern value="rife.bld.extension.AbstractJReleaserOperation" method="warn" />
+    <pattern value="rife.bld.extension.AbstractJReleaserModelOperation" method="yolo" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build" />
