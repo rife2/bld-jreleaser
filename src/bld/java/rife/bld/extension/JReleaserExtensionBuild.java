@@ -65,7 +65,7 @@ public class JReleaserExtensionBuild extends Project {
                 .link("https://rife2.github.io/rife2/");
 
         publishOperation()
-                .repository(version.isSnapshot() ? repository("rife2-snapshot") : repository("rife2"))
+                .repository(version.isSnapshot() ? repository("rife2-snapshots") : repository("rife2"))
                 .repository(repository("github"))
                 .info()
                 .groupId("com.uwyn.rife2")
