@@ -51,7 +51,7 @@ public class JReleaserExtensionBuild extends Project {
                         version(3, 0, 0, "SNAPSHOT")));
         scope(test)
                 .include(dependency("com.uwyn.rife2", "bld-testing-helpers",
-                        version(1, 1, 0, "SNAPSHOT")))
+                        version(1, 1, 0)))
                 .include(dependency("org.jreleaser", "jreleaser",
                         version(1, 26, 0)))
                 .include(dependency("org.junit.jupiter", "junit-jupiter", junit))
