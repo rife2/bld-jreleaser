@@ -47,8 +47,7 @@ public class JReleaserExtensionBuild extends Project {
         scope(compile)
                 .include(dependency("com.uwyn.rife2", "bld-extensions-tools",
                         version(1, 3, 0)))
-                .include(dependency("com.uwyn.rife2", "bld",
-                        version(3, 0, 0, "SNAPSHOT")));
+                .include(dependency("com.uwyn.rife2", "bld", version(3, 0, 0)));
         scope(test)
                 .include(dependency("com.uwyn.rife2", "bld-testing-helpers",
                         version(1, 1, 0)))
